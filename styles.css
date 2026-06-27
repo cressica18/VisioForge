@@ -1,0 +1,479 @@
+/* styles.css — VisioForge custom dark theme */
+/* Imported into app.py via st.markdown injection */
+
+/* ---------------------------------------------------------------------------
+   CSS Custom Properties
+   --------------------------------------------------------------------------- */
+:root {
+    --bg-primary:     #0D1117;
+    --bg-card:        #161B22;
+    --bg-elevated:    #1C2230;
+    --accent-primary: #7C3AED;
+    --accent-secondary: #06B6D4;
+    --accent-glow:    rgba(124, 58, 237, 0.35);
+    --accent-glow-teal: rgba(6, 182, 212, 0.25);
+    --text-primary:   #F0F6FC;
+    --text-muted:     #8B949E;
+    --text-dim:       #484F58;
+    --success:        #3FB950;
+    --error:          #F85149;
+    --border:         #21262D;
+    --border-focus:   #7C3AED;
+    --radius-sm:      6px;
+    --radius-md:      10px;
+    --radius-lg:      16px;
+    --shadow-card:    0 4px 24px rgba(0, 0, 0, 0.4);
+    --shadow-glow:    0 0 24px rgba(124, 58, 237, 0.2);
+    --transition:     all 0.2s ease;
+    --font-sans:      'Inter', 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ---------------------------------------------------------------------------
+   Google Fonts Import
+   --------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ---------------------------------------------------------------------------
+   Global Reset & Base
+   --------------------------------------------------------------------------- */
+html, body, [data-testid="stAppViewContainer"] {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-sans) !important;
+}
+
+[data-testid="stApp"] {
+    background-color: var(--bg-primary) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Scrollbar
+   --------------------------------------------------------------------------- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--bg-elevated); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-primary); }
+
+/* ---------------------------------------------------------------------------
+   Sidebar
+   --------------------------------------------------------------------------- */
+[data-testid="stSidebar"] {
+    background-color: var(--bg-card) !important;
+    border-right: 1px solid var(--border) !important;
+}
+
+[data-testid="stSidebar"] * {
+    color: var(--text-primary) !important;
+}
+
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] h4 {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+}
+
+[data-testid="stSidebar"] .stCaption {
+    color: var(--text-muted) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Header
+   --------------------------------------------------------------------------- */
+.vf-header {
+    text-align: center;
+    padding: 2.5rem 1rem 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.vf-title {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 0.5rem 0;
+}
+
+.vf-tagline {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 0 0 0.75rem 0;
+    font-weight: 400;
+}
+
+.vf-description {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ---------------------------------------------------------------------------
+   Panels / Cards
+   --------------------------------------------------------------------------- */
+.vf-panel {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-card);
+    height: 100%;
+}
+
+/* ---------------------------------------------------------------------------
+   Style Preview
+   --------------------------------------------------------------------------- */
+.vf-style-preview {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-primary);
+    border-radius: var(--radius-sm);
+    padding: 0.6rem 0.9rem;
+    margin-top: 0.5rem;
+    animation: fadeIn 0.2s ease;
+}
+
+.vf-style-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: block;
+    line-height: 1.4;
+}
+
+.vf-style-keywords {
+    font-size: 0.72rem;
+    color: var(--accent-secondary);
+    opacity: 0.85;
+    margin-top: 0.3rem;
+    display: block;
+}
+
+/* ---------------------------------------------------------------------------
+   Generated Image
+   --------------------------------------------------------------------------- */
+.vf-image-container {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 32px var(--accent-glow), var(--shadow-card);
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.4s ease;
+}
+
+.vf-generated-image {
+    width: 100%;
+    display: block;
+    border-radius: var(--radius-md);
+}
+
+/* ---------------------------------------------------------------------------
+   Empty State
+   --------------------------------------------------------------------------- */
+.vf-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    min-height: 340px;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-elevated);
+}
+
+.vf-empty-icon {
+    font-size: 3rem;
+    color: var(--accent-primary);
+    opacity: 0.4;
+    margin-bottom: 1rem;
+}
+
+.vf-empty-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 0 0 0.5rem 0;
+}
+
+.vf-empty-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    max-width: 280px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Metadata Card
+   --------------------------------------------------------------------------- */
+.vf-meta-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+}
+
+.vf-meta-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.vf-meta-label {
+    font-weight: 600;
+    color: var(--accent-secondary);
+    min-width: 80px;
+    flex-shrink: 0;
+}
+
+.vf-meta-value {
+    color: var(--text-muted);
+}
+
+.vf-meta-prompt {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.75rem;
+    background: var(--bg-elevated);
+    padding: 0.4rem 0.6rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    word-break: break-word;
+}
+
+/* ---------------------------------------------------------------------------
+   Gallery
+   --------------------------------------------------------------------------- */
+.vf-gallery-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: var(--transition);
+    margin-bottom: 0.5rem;
+}
+
+.vf-gallery-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 16px var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+.vf-gallery-thumb {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+/* ---------------------------------------------------------------------------
+   Streamlit Buttons
+   --------------------------------------------------------------------------- */
+[data-testid="stButton"] > button[kind="primary"] {
+    background: linear-gradient(135deg, var(--accent-primary), #6D28D9) !important;
+    color: var(--text-primary) !important;
+    border: none !important;
+    border-radius: var(--radius-md) !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    padding: 0.65rem 1.5rem !important;
+    transition: var(--transition) !important;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4) !important;
+    letter-spacing: 0.01em !important;
+}
+
+[data-testid="stButton"] > button[kind="primary"]:hover:not(:disabled) {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.55) !important;
+}
+
+[data-testid="stButton"] > button[kind="primary"]:disabled {
+    opacity: 0.45 !important;
+    cursor: not-allowed !important;
+}
+
+[data-testid="stButton"] > button[kind="secondary"] {
+    background: var(--bg-elevated) !important;
+    color: var(--text-muted) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-md) !important;
+    font-weight: 500 !important;
+    transition: var(--transition) !important;
+}
+
+[data-testid="stButton"] > button[kind="secondary"]:hover {
+    border-color: var(--accent-primary) !important;
+    color: var(--text-primary) !important;
+    background: var(--bg-card) !important;
+}
+
+/* Download button */
+[data-testid="stDownloadButton"] > button {
+    background: var(--bg-elevated) !important;
+    color: var(--accent-secondary) !important;
+    border: 1px solid var(--accent-secondary) !important;
+    border-radius: var(--radius-md) !important;
+    font-weight: 500 !important;
+    transition: var(--transition) !important;
+    width: 100% !important;
+}
+
+[data-testid="stDownloadButton"] > button:hover {
+    background: rgba(6, 182, 212, 0.1) !important;
+    box-shadow: 0 0 12px var(--accent-glow-teal) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Inputs
+   --------------------------------------------------------------------------- */
+[data-testid="stTextArea"] textarea,
+[data-testid="stTextInput"] input {
+    background-color: var(--bg-elevated) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-md) !important;
+    font-family: var(--font-sans) !important;
+    transition: var(--transition) !important;
+}
+
+[data-testid="stTextArea"] textarea:focus,
+[data-testid="stTextInput"] input:focus {
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2) !important;
+    outline: none !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Radio Buttons — Style selector
+   --------------------------------------------------------------------------- */
+[data-testid="stRadio"] label {
+    background: var(--bg-elevated) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 0.4rem 0.75rem !important;
+    margin-bottom: 0.3rem !important;
+    cursor: pointer !important;
+    transition: var(--transition) !important;
+    display: block !important;
+    font-size: 0.875rem !important;
+    color: var(--text-muted) !important;
+}
+
+[data-testid="stRadio"] label:hover {
+    border-color: var(--accent-primary) !important;
+    color: var(--text-primary) !important;
+    background: var(--bg-card) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Selectbox
+   --------------------------------------------------------------------------- */
+[data-testid="stSelectbox"] > div > div {
+    background-color: var(--bg-elevated) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--text-primary) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Expander
+   --------------------------------------------------------------------------- */
+[data-testid="stExpander"] {
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-md) !important;
+    background: var(--bg-elevated) !important;
+}
+
+[data-testid="stExpander"] summary {
+    color: var(--text-muted) !important;
+    font-weight: 500 !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Dividers
+   --------------------------------------------------------------------------- */
+hr {
+    border-color: var(--border) !important;
+    opacity: 0.5;
+}
+
+/* ---------------------------------------------------------------------------
+   Status Messages
+   --------------------------------------------------------------------------- */
+[data-testid="stAlert"] {
+    border-radius: var(--radius-md) !important;
+    border-left-width: 4px !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Spinner
+   --------------------------------------------------------------------------- */
+[data-testid="stSpinner"] {
+    color: var(--accent-primary) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Captions
+   --------------------------------------------------------------------------- */
+.stCaption, [data-testid="stCaptionContainer"] p {
+    color: var(--text-muted) !important;
+    font-size: 0.78rem !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Headings
+   --------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary) !important;
+    font-family: var(--font-sans) !important;
+}
+
+h4 {
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em !important;
+    color: var(--text-muted) !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0.75rem !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Toast
+   --------------------------------------------------------------------------- */
+[data-testid="stToast"] {
+    background: var(--bg-elevated) !important;
+    border: 1px solid var(--success) !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--text-primary) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Animations
+   --------------------------------------------------------------------------- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Applied to gallery cards on arrival */
+.vf-gallery-card {
+    animation: fadeIn 0.3s ease both;
+}
