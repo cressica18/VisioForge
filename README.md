@@ -8,10 +8,9 @@ VisioForge is a professional AI image generation studio built with Python and St
 
 ## Live Demo
 
-| | |
-|---|---|
-| **Deployed App** | `https://visioforge-ai.streamlit.app/` |
-| **GitHub Repository** | `https://github.com/cressica18/VisioForge.git`|
+ **[Try VisioForge Live](https://visioforge-ai.streamlit.app/)**
+
+ **[GitHub Repository](https://github.com/cressica18/VisioForge)**
 
 
 ---
