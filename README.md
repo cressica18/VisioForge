@@ -218,4 +218,4 @@ If the primary model fails (quota, rate limit, cold start), the app retries the 
 
 ## License
 
-MIT License. See `LICENSE` for details.
+No License
